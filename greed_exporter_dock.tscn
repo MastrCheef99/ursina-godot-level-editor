@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn45vfw6btlu1"]
 
-[ext_resource type="Texture2D" uid="uid://7ywvir2mdrla" path="res://addons/greed_exporter/FolderBrowse.svg" id="1_se1g5"]
+[ext_resource type="Texture2D" uid="uid://cw57nurhjfr47" path="res://addons/greed_exporter/FolderBrowse.svg" id="1_se1g5"]
 [ext_resource type="Script" uid="uid://cvghfcg6dqp18" path="res://addons/greed_exporter/greed_exporter_dock.gd" id="1_yxhfs"]
 
 [node name="Greed Exporter" type="Control" unique_id=1112009494]

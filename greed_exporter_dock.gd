@@ -101,7 +101,7 @@ func _on_button_pressed() -> void:
 		file.store_string(
 			"Brick(self, position = ("+str(round_place(pos.x,3))+","+str(round_place(pos.y,3))+","+str(round_place(pos.z,3))+
 			"),scale = ("+str(round_place(truescale.x,3))+","+str(round_place(truescale.y,3))+"," + str(round_place(truescale.z,3)) + 
-			"), rotation_x = "+str(round_place(rot.x,3))+", rotation_y = "+str(round_place(rot.y,3))+", rotation_z = "+str(round_place(rot.z,3))+
+			"), rotation_x = "+str(round_place(-rot.x,3))+", rotation_y = "+str(round_place(-rot.y,3))+", rotation_z = "+str(round_place(-rot.z,3))+
 			", texture=textures[\"" + brick.texture + "\"]" +
 			", texture_scale=(" + str(round_place(brick.texture_scale.x,3)) + "," + str(round_place(brick.texture_scale.y,3)) + ")" +
 			", color=color.hex(\"#" + brick.material.albedo_color.to_html() + "\")" +
