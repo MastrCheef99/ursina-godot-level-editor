@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bn45vfw6btlu1"]
 
-[ext_resource type="Texture2D" uid="uid://cw57nurhjfr47" path="res://addons/greed_exporter/FolderBrowse.svg" id="1_se1g5"]
+[ext_resource type="Texture2D" uid="uid://digc7frs7jyrx" path="res://addons/greed_exporter/FolderBrowse.svg" id="1_se1g5"]
 [ext_resource type="Script" uid="uid://cvghfcg6dqp18" path="res://addons/greed_exporter/greed_exporter_dock.gd" id="1_yxhfs"]
 
 [node name="Greed Exporter" type="Control" unique_id=1112009494]
@@ -80,6 +80,27 @@ text = "Import Textures"
 layout_mode = 2
 text = "Export Level"
 
+[node name="Label3" type="Label" parent="VBoxContainer" unique_id=288382551]
+layout_mode = 2
+text = "Import Level"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=1145071125]
+layout_mode = 2
+
+[node name="Import_Path" type="LineEdit" parent="VBoxContainer/HBoxContainer4" unique_id=814364283]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "res://texturedict.json"
+placeholder_text = "Texture Dictionary JSON"
+
+[node name="Import_Path_File_Dialog" type="Button" parent="VBoxContainer/HBoxContainer4" unique_id=547604306]
+layout_mode = 2
+icon = ExtResource("1_se1g5")
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=1386929785]
+layout_mode = 2
+text = "Import Level"
+
 [node name="OutputFileDialog" type="EditorFileDialog" parent="." unique_id=1004665205]
 oversampling_override = 1.0
 title = "Open a Directory"
@@ -97,12 +118,19 @@ title = "Open a File"
 size = Vector2i(1600, 900)
 file_mode = 0
 
+[node name="ImportFileDialog" type="EditorFileDialog" parent="." unique_id=1331894530]
+title = "Open a File"
+file_mode = 0
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Output_File_Dialog" to="." method="_on_output_file_dialog_pressed"]
 [connection signal="pressed" from="VBoxContainer/Open_Output_Path" to="." method="_on_open_output_path_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/Texture_File_Dialog" to="." method="_on_texture_file_dialog_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer3/Texture_Dict_File_Dialog" to="." method="_on_texture_dict_file_dialog_pressed"]
 [connection signal="pressed" from="VBoxContainer/Import_Textures_Path" to="." method="_on_import_textures_path_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Import_Path_File_Dialog" to="." method="_on_import_path_file_dialog_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="dir_selected" from="OutputFileDialog" to="." method="_on_output_file_dialog_dir_selected"]
 [connection signal="dir_selected" from="TextureFileDialog" to="." method="_on_texture_file_dialog_dir_selected"]
 [connection signal="file_selected" from="TextureDictFileDialog" to="." method="_on_texture_dict_file_dialog_file_selected"]
+[connection signal="file_selected" from="ImportFileDialog" to="." method="_on_import_file_dialog_file_selected"]

@@ -16,6 +16,23 @@ class_name UrsinaBox3D extends CSGBox3D
 		
 @export var collider : String = "box"
 
+var init_pos : Vector3 = Vector3.ZERO
+var init_rot : Vector3 = Vector3.ZERO
+
+func _init(data : Dictionary):
+	if not material:
+		material = StandardMaterial3D.new()
+	init_pos = data.get("position") if data.has("position") else Vector3.ZERO
+	init_rot = data.get("rotation") if data.has("rotation") else Vector3.ZERO
+	size = data.get("scale") if data.has("scale") else Vector3.ONE
+	if data.has("texture"):
+		texture = data.get("texture")
+	if data.has("texture_scale"):
+		apply_texture_scale(data.get("texture_scale"))
+	if data.has("color"):
+		apply_color(Color(data.get("color")))
+	collider = data.get("collider") if data.has("collider") else "box"
+	
 
 func refresh():
 	apply_texture(texture)
@@ -24,6 +41,8 @@ func _enter_tree() -> void:
 	add_to_group("Ursina Boxes")
 	if not material:
 		material = StandardMaterial3D.new()
+	global_position = init_pos
+	global_rotation = init_rot
 	
 func _ready() -> void:
 	if TextureRegistry._is_loaded():
